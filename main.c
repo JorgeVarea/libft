@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 16:30:44 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/12 21:05:34 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
+/*   Updated: 2023/09/13 19:30:51 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 int	main(int argc, char **argv)
 {
-	char	c;
-	char	*str1;
-	char	*str2;
+	char c;
+	char *str1;
+	char *str2;
 
 	if (argc >= 2)
 	{
@@ -47,8 +47,8 @@ int	main(int argc, char **argv)
 			printf("src %s\n", str1);
 			printf("dest %s\n", str2);
 		}
-		else if(argv[1][0] == '2')
-		{	
+		else if (argv[1][0] == '2')
+		{
 			str1 = argv[2];
 			str2 = argv[3];
 			printf("Testing strlcat...\n");
@@ -62,6 +62,14 @@ int	main(int argc, char **argv)
 			printf("src %s\n", str1);
 			printf("dest %s\n", str2);
 		}
+		else if (argv[1][0] == '3')
+		{
+			str1 = argv[2];
+			str2 = argv[3];
+			printf("Testing strrchr...\n");
+			printf("The piece of string after the last ocurrence of the character is: 
+				%s\n", ft_strrchr(str1, str2[0]));
+		}
 	}
 	else
 	{
@@ -71,6 +79,7 @@ int	main(int argc, char **argv)
 		printf("0: ft_is*.c, to*.c\n");
 		printf("1: ft_strlcpy.c\n");
 		printf("2: ft_strlcat.c\n");
+		printf("3: ft_strrchr.c\n");
 		printf("##################################\n");
 	}
 	return (0);
