@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/13 17:54:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:34:35 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/09/14 17:56:51 by jorvarea          #+#    #+#             */
+/*   Updated: 2023/09/14 19:28:27 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Locate the last occurrence of character 'c' in the string 'str'.
+ * Locate the first occurrence of the specified character 'c' 
+ * in the given string 'str'.
  *
- * This function searches the string 'str' for the last occurrence of the 
- * character 'c' and returns a pointer to the found character in the string.
+ * This function searches for the character 'c' in the string 'str' 
+ * and returns a pointer to the first occurrence of 'c' in 'str'. 
+ * If 'c' is not found, it returns NULL.
  *
- * @param str  The string to be searched.
- * @param c    The character to locate.
+ * @param str  The string in which to search for the character 'c'.
+ * @param c    The character to be located within the string.
  *
- * @return     A pointer to the last occurrence of 'c' in 'str',
- *			or NULL if not found.
+ * @return     A pointer to the first occurrence of 'c' in 'str',
+ *  or NULL if 'c' is not found.
  */
-char	*ft_strrchr(char *str, int c)
+char	*ft_strchr(char *str, int c)
 {
-	int		i;
-	char	*last_position;
+	int	i;
 
 	i = 0;
-	last_position = NULL;
 	while (str[i] != '\0')
 	{
 		if ((unsigned char)str[i] == (unsigned char)c)
-			last_position = &str[i];
+			return (&str[i]);
 		i++;
 	}
 	if (c == '\0')
 		return (&str[i]);
 	else
-		return (last_position);
+		return (NULL);
 }
