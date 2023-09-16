@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:42:11 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:34:57 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:53:59 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@
  * @return         A pointer to the found substring in 'str',
  * 				 or NULL if not found.
  */
-char	*ft_strnstr(char *str, char *to_find, int n)
+char	*ft_strnstr(char *str, char *to_find, size_t n)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (to_find[0] == '\0')
 		return (str);
-	while (str[i] != '\0')
+	while (str[i] != '\0' && i < n)
 	{
 		if (str[i] == to_find[0])
 		{
 			j = 0;
-			while (j < n - 1 && to_find[j] && str[i + j] && str[i
+			while (i + j < n && to_find[j] && str[i + j] && str[i
 					+ j] == to_find[j])
 				j++;
 			if (to_find[j] == '\0')

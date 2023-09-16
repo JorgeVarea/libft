@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 19:01:32 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:32:05 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:55:55 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  * 				excluding the null terminator.
  *              If 'size' is 0, it returns the length of 'src'.
  */
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dest, char *src, size_t size)
 {
 	size_t	i;
 

@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:49:14 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:42:51 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,15 @@ int	main(int argc, char **argv)
 	char c;
 	char *str1;
 	char *str2;
+	int *num;
+	void *ptr1;
+	void *ptr2;
+	char *ch;
 
+	ch = malloc(sizeof(char));
+	num = malloc(sizeof(int));
+	ptr2 = malloc(20*sizeof(char));
+	c = '\0';
 	if (argc >= 2)
 	{
 		if (argv[1][0] == '0')
@@ -27,6 +35,7 @@ int	main(int argc, char **argv)
 			printf("Alphabetic? %d\n", ft_isalpha(c));
 			printf("Digit? %d\n", ft_isdigit(c));
 			printf("Alphanumeric? %d\n", ft_isalnum(c));
+			printf("Space? %d\n", ft_isspace(c));
 			printf("ASCII? %d\n", ft_isascii(c));
 			printf("Printable? %d\n", ft_isprint(c));
 			printf("Uppercase: %c\n", ft_toupper(c));
@@ -83,7 +92,45 @@ int	main(int argc, char **argv)
 			str1 = argv[2];
 			str2 = argv[3];
 			printf("Testing strnstr...\n");
-			printf("The piece of string after the found substring is (size=10): %s\n", ft_strnstr(str1, str2, 10));
+			printf("The piece of string after the found substring is (size=5): %s\n", ft_strnstr(str1, str2, 5));
+		}
+		else if (argv[1][0] == '6')
+		{
+			str1 = argv[2];
+			printf("Testing atoi...\n");
+			printf("Number extracted: %d\n", ft_atoi(str1));
+		}
+		else if (argv[1][0] == '7')
+		{
+			printf("Testing memset...\n");
+			printf("Character to write in memory: ");
+			scanf(" %c", ch);
+			printf("Size of memory to write: ");
+			scanf("%i", num);
+			ptr1 = malloc(*num);
+			printf("Memory: %s", ft_memset(ptr1, ch[0], *num));
+			free(ptr1);
+		}
+		else if (argv[1][0] == '8')
+		{
+			printf("Testing bzero...\n");
+			printf("Size of memory to write: ");
+			scanf("%i", num);
+			ptr1 = malloc(*num);
+			ft_bzero(ptr1, *num);
+			printf("Memory: %s", ptr1);
+			free(ptr1);
+		}
+		else if (argv[1][0] == '9')
+		{
+			printf("Testing memcpy...\n");
+			printf("String to copy: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Size of memory to write: ");
+			scanf("%i", num);
+			ptr1 = malloc(*num);
+			printf("Destination memory: %s", ft_memcpy(ptr1, ptr2, *num));
+			free(ptr1);
 		}
 	}
 	else
@@ -97,7 +144,13 @@ int	main(int argc, char **argv)
 		printf("3: ft_strchr.c & ft_strrchr.c\n");
 		printf("4: ft_strncmp.c\n");
 		printf("5: ft_strnstr.c\n");
+		printf("6: ft_atoi.c\n");
+		printf("7: ft_memset.c\n");
+		printf("8: ft_bzero.c\n");
+		printf("9: ft_memcpy.c\n");
 		printf("##################################\n");
 	}
+	free(ch);
+	free(num);
 	return (0);
 }

@@ -6,9 +6,11 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 19:20:39 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:33:07 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/16 09:55:20 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 /**
  * Compare the first 'n' characters of two strings 's1' and 's2'
@@ -28,7 +30,7 @@
  * @return    An integer less than, equal to, or greater than 0,
  * 			  depending on the comparison result.
  */
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
 	unsigned int	i;
 
