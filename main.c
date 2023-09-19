@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/16 19:42:51 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/19 20:15:45 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ int	main(int argc, char **argv)
 	char c;
 	char *str1;
 	char *str2;
-	int *num;
+	int num, num1, num2;
 	void *ptr1;
 	void *ptr2;
-	char *ch;
+	void *ptr3;
+	int i;
 
-	ch = malloc(sizeof(char));
-	num = malloc(sizeof(int));
 	ptr2 = malloc(20*sizeof(char));
+	ptr3 = malloc(20*sizeof(char));
 	c = '\0';
 	if (argc >= 2)
 	{
@@ -104,20 +104,20 @@ int	main(int argc, char **argv)
 		{
 			printf("Testing memset...\n");
 			printf("Character to write in memory: ");
-			scanf(" %c", ch);
+			scanf(" %c", &c);
 			printf("Size of memory to write: ");
-			scanf("%i", num);
-			ptr1 = malloc(*num);
-			printf("Memory: %s", ft_memset(ptr1, ch[0], *num));
+			scanf(" %d", &num);
+			ptr1 = malloc(num);
+			printf("Memory: %s", ft_memset(ptr1, c, num));
 			free(ptr1);
 		}
 		else if (argv[1][0] == '8')
 		{
 			printf("Testing bzero...\n");
 			printf("Size of memory to write: ");
-			scanf("%i", num);
-			ptr1 = malloc(*num);
-			ft_bzero(ptr1, *num);
+			scanf(" %d", &num);
+			ptr1 = malloc(num);
+			ft_bzero(ptr1, num);
 			printf("Memory: %s", ptr1);
 			free(ptr1);
 		}
@@ -127,9 +127,55 @@ int	main(int argc, char **argv)
 			printf("String to copy: ");
 			scanf(" %s", (char *)ptr2);
 			printf("Size of memory to write: ");
-			scanf("%i", num);
-			ptr1 = malloc(*num);
-			printf("Destination memory: %s", ft_memcpy(ptr1, ptr2, *num));
+			scanf(" %d", &num);
+			ptr1 = malloc(num);
+			printf("Destination memory: %s\n", ft_memcpy(ptr1, ptr2, num));
+			free(ptr1);
+		}
+		else if (argv[1][0] == 'A')
+		{
+			printf("Testing memmove...\n");
+			printf("String to copy: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Size of memory to write: ");
+			scanf(" %d", &num);
+			ptr1 = malloc(num);
+			printf("Destination memory: %s\n", ft_memmove(ptr1, ptr2, num));
+			free(ptr1);
+		}
+		else if (argv[1][0] == 'B')
+		{
+			printf("Testing memchr...\n");
+			printf("String to scan: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Character to find: ");
+			scanf(" %c", &c);
+			printf("Length of bytes to search: ");
+			scanf(" %d", &num);
+			printf("Found: %s\n", ft_memchr(ptr2, c, num));
+		}
+		else if (argv[1][0] == 'C')
+		{
+			printf("Testing memcmp...\n");
+			printf("First string: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Second string: ");
+			scanf(" %s", (char *)ptr3);
+			printf("Number of characters to compare: ");
+			scanf(" %d", &num);
+			printf("Result: %d\n", ft_memcmp(ptr2, ptr3, num));
+		}
+		else if (argv[1][0] == 'D')
+		{
+			printf("Testing calloc...\n");
+			printf("Size of each variable: ");
+			scanf(" %d", &num1);
+			printf("Number of variables: ");
+			scanf(" %d", &num2);
+			ptr1 = ft_calloc(num2, num1);
+			i = 0;
+			while (i < num1 * num2)
+				printf("%c", ((unsigned char *)ptr1)[i++] + '0');
 			free(ptr1);
 		}
 	}
@@ -148,9 +194,13 @@ int	main(int argc, char **argv)
 		printf("7: ft_memset.c\n");
 		printf("8: ft_bzero.c\n");
 		printf("9: ft_memcpy.c\n");
+		printf("A: ft_memmove.c\n");
+		printf("B: ft_memchr.c\n");
+		printf("C: ft_memcmp.c\n");
+		printf("D: ft_calloc.c\n");
 		printf("##################################\n");
 	}
-	free(ch);
-	free(num);
+	free(ptr2);
+	free(ptr3);
 	return (0);
 }
