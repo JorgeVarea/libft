@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/19 20:15:45 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:37:40 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,6 +178,26 @@ int	main(int argc, char **argv)
 				printf("%c", ((unsigned char *)ptr1)[i++] + '0');
 			free(ptr1);
 		}
+		else if (argv[1][0] == 'E')
+		{
+			printf("Testing strdup...\n");
+			printf("String to copy: ");
+			scanf(" %s", (char *)ptr2);
+			ptr3 = ft_strdup((const char *)ptr2);
+			printf("Copied string: %s\n", ptr3);
+		}
+		else if (argv[1][0] == 'F')
+		{
+			printf("Testing substr...\n");
+			printf("String to get substring: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Start of the substring: ");
+			scanf(" %d", &num1);
+			printf("Lenght of the substring: ");
+			scanf(" %d", &num2);
+			ptr3 = ft_substr(ptr2, num1, num2);
+			printf("Copied string: %s\n", ptr3);
+		}
 	}
 	else
 	{
@@ -198,6 +218,8 @@ int	main(int argc, char **argv)
 		printf("B: ft_memchr.c\n");
 		printf("C: ft_memcmp.c\n");
 		printf("D: ft_calloc.c\n");
+		printf("E: ft_strdup.c\n");
+		printf("F: ft_substr.c\n");
 		printf("##################################\n");
 	}
 	free(ptr2);
