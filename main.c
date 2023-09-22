@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/20 18:37:40 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/22 21:56:07 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ int	main(int argc, char **argv)
 	void *ptr2;
 	void *ptr3;
 	int i;
+	char **words;
 
-	ptr2 = malloc(20*sizeof(char));
-	ptr3 = malloc(20*sizeof(char));
+	ptr2 = malloc(500*sizeof(char));
+	ptr3 = malloc(500*sizeof(char));
 	c = '\0';
 	if (argc >= 2)
 	{
@@ -198,6 +199,22 @@ int	main(int argc, char **argv)
 			ptr3 = ft_substr(ptr2, num1, num2);
 			printf("Copied string: %s\n", ptr3);
 		}
+		else if (argv[1][0] == 'G')
+		{
+			printf("Testing split...\n");
+			printf("String to split: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Splitting character: ");
+			scanf(" %c", &c);
+			words = ft_split((char const *)ptr2, c);
+			printf("Splitted words: \n");
+			i = 0;
+			while (words[i])
+			{
+				printf("Word %d: %s\n", i + 1, words[i]);
+				i++;
+			}
+		}
 	}
 	else
 	{
@@ -220,6 +237,7 @@ int	main(int argc, char **argv)
 		printf("D: ft_calloc.c\n");
 		printf("E: ft_strdup.c\n");
 		printf("F: ft_substr.c\n");
+		printf("G: ft_split.c\n");
 		printf("##################################\n");
 	}
 	free(ptr2);
