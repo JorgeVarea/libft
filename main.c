@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/22 21:56:07 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/24 21:00:09 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -215,6 +215,33 @@ int	main(int argc, char **argv)
 				i++;
 			}
 		}
+		else if (argv[1][0] == 'H')
+		{
+			printf("Testing strjoin...\n");
+			printf("First string: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Second string: ");
+			scanf(" %s", (char *)ptr3);
+			printf("Joined string: %s\n", ft_strjoin((const char *)ptr2,
+				 (const char *)ptr3));
+		}
+		else if (argv[1][0] == 'I')
+		{
+			printf("Testing strtrim...\n");
+			printf("String to trim: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Set of characters to trim: ");
+			scanf(" %s", (char *)ptr3);
+			printf("Trimmed string: %s\n", ft_strtrim((const char *)ptr2,
+				 (const char *)ptr3));
+		}
+		else if (argv[1][0] == 'J')
+		{
+			printf("Testing itoa...\n");
+			printf("Number to stringfy: ");
+			scanf(" %d", &num);
+			printf("Number in string format: %s\n", ft_itoa(num));
+		}
 	}
 	else
 	{
@@ -238,6 +265,9 @@ int	main(int argc, char **argv)
 		printf("E: ft_strdup.c\n");
 		printf("F: ft_substr.c\n");
 		printf("G: ft_split.c\n");
+		printf("H: ft_strjoin.c\n");
+		printf("I: ft_strtrim.c\n");
+		printf("J: ft_itoa.c\n");
 		printf("##################################\n");
 	}
 	free(ptr2);
