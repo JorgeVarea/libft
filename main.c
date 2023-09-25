@@ -6,12 +6,28 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/24 21:00:09 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/25 18:26:19 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+
+static char ft_zigzag_case(unsigned int i, char c) 
+{
+    if (i % 2 == 0) 
+        return ft_toupper(c);
+	else 
+        return ft_tolower(c);
+}
+
+static void ft_zigzag_case_ptr(unsigned int i, char *c) 
+{
+    if (i % 2 == 0) 
+        *c = ft_toupper(*c);
+	else 
+        *c = ft_tolower(*c);
+}
 
 int	main(int argc, char **argv)
 {
@@ -242,6 +258,21 @@ int	main(int argc, char **argv)
 			scanf(" %d", &num);
 			printf("Number in string format: %s\n", ft_itoa(num));
 		}
+		else if (argv[1][0] == 'K')
+		{
+			printf("Testing strmapi...\n");
+			printf("String to map: ");
+			scanf(" %s", (char *)ptr2);
+			printf("Mapped string: %s\n", ft_strmapi((const char *)ptr2, ft_zigzag_case));
+		}
+		else if (argv[1][0] == 'L')
+		{
+			printf("Testing striteri...\n");
+			printf("String to map: ");
+			scanf(" %s", (char *)ptr2);
+			ft_striteri((char *)ptr2, ft_zigzag_case_ptr);
+			printf("Mapped and iterated string: %s\n", (char *)ptr2);
+		}
 	}
 	else
 	{
@@ -268,6 +299,8 @@ int	main(int argc, char **argv)
 		printf("H: ft_strjoin.c\n");
 		printf("I: ft_strtrim.c\n");
 		printf("J: ft_itoa.c\n");
+		printf("K: ft_strmapi.c\n");
+		printf("L: ft_striteri.c\n");
 		printf("##################################\n");
 	}
 	free(ptr2);
