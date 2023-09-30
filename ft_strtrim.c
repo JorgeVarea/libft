@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 18:54:43 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/24 20:14:27 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:40:29 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[i] && ft_char_in_set(set, s1[i]))
 		i++;
 	start = i;
-	i = ft_strlen((char *)s1) - 1;
+	i = ft_strlen(s1) - 1;
 	while (i >= 0 && ft_char_in_set(set, s1[i]))
 		i--;
 	end = i;

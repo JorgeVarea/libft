@@ -6,12 +6,14 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/25 18:26:19 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 22:08:53 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 static char ft_zigzag_case(unsigned int i, char c) 
 {
@@ -40,6 +42,7 @@ int	main(int argc, char **argv)
 	void *ptr3;
 	int i;
 	char **words;
+	int fd;
 
 	ptr2 = malloc(500*sizeof(char));
 	ptr3 = malloc(500*sizeof(char));
@@ -125,7 +128,7 @@ int	main(int argc, char **argv)
 			printf("Size of memory to write: ");
 			scanf(" %d", &num);
 			ptr1 = malloc(num);
-			printf("Memory: %s", ft_memset(ptr1, c, num));
+			printf("Memory: %s", (char *)ft_memset(ptr1, c, num));
 			free(ptr1);
 		}
 		else if (argv[1][0] == '8')
@@ -135,7 +138,7 @@ int	main(int argc, char **argv)
 			scanf(" %d", &num);
 			ptr1 = malloc(num);
 			ft_bzero(ptr1, num);
-			printf("Memory: %s", ptr1);
+			printf("Memory: %s", (char *)ptr1);
 			free(ptr1);
 		}
 		else if (argv[1][0] == '9')
@@ -146,7 +149,7 @@ int	main(int argc, char **argv)
 			printf("Size of memory to write: ");
 			scanf(" %d", &num);
 			ptr1 = malloc(num);
-			printf("Destination memory: %s\n", ft_memcpy(ptr1, ptr2, num));
+			printf("Destination memory: %s\n", (char *)ft_memcpy(ptr1, ptr2, num));
 			free(ptr1);
 		}
 		else if (argv[1][0] == 'A')
@@ -157,7 +160,7 @@ int	main(int argc, char **argv)
 			printf("Size of memory to write: ");
 			scanf(" %d", &num);
 			ptr1 = malloc(num);
-			printf("Destination memory: %s\n", ft_memmove(ptr1, ptr2, num));
+			printf("Destination memory: %s\n", (char *)ft_memmove(ptr1, ptr2, num));
 			free(ptr1);
 		}
 		else if (argv[1][0] == 'B')
@@ -169,7 +172,7 @@ int	main(int argc, char **argv)
 			scanf(" %c", &c);
 			printf("Length of bytes to search: ");
 			scanf(" %d", &num);
-			printf("Found: %s\n", ft_memchr(ptr2, c, num));
+			printf("Found: %s\n", (char *)ft_memchr(ptr2, c, num));
 		}
 		else if (argv[1][0] == 'C')
 		{
@@ -201,7 +204,7 @@ int	main(int argc, char **argv)
 			printf("String to copy: ");
 			scanf(" %s", (char *)ptr2);
 			ptr3 = ft_strdup((const char *)ptr2);
-			printf("Copied string: %s\n", ptr3);
+			printf("Copied string: %s\n", (char *)ptr3);
 		}
 		else if (argv[1][0] == 'F')
 		{
@@ -213,7 +216,7 @@ int	main(int argc, char **argv)
 			printf("Lenght of the substring: ");
 			scanf(" %d", &num2);
 			ptr3 = ft_substr(ptr2, num1, num2);
-			printf("Copied string: %s\n", ptr3);
+			printf("Copied string: %s\n", (char *)ptr3);
 		}
 		else if (argv[1][0] == 'G')
 		{
@@ -273,6 +276,29 @@ int	main(int argc, char **argv)
 			ft_striteri((char *)ptr2, ft_zigzag_case_ptr);
 			printf("Mapped and iterated string: %s\n", (char *)ptr2);
 		}
+		else if (argv[1][0] == 'M')
+		{
+			printf("Testing putchar_fd...\n");
+			fd = open("test.txt", O_WRONLY | O_CREAT);
+			printf("Character to write: ");
+			scanf(" %c", &c);
+			ft_putchar_fd(c, fd);
+			ft_putchar_fd('\n', fd);
+			printf("String to write: ");
+			scanf(" %s", (char *)ptr2);
+			ft_putstr_fd(ptr2, fd);
+			ft_putchar_fd('\n', fd);
+			ft_putendl_fd(ptr2, fd);
+			ft_putchar_fd('\n', fd);
+			printf("Number to write: ");
+			scanf(" %d", &num);
+			ft_putnbr_fd(num, fd);
+			ft_putchar_fd('\n', fd);
+			printf("Executing cat -e test.txt...\n");
+			close(fd);
+			chmod("test.txt", S_IRUSR | S_IWUSR);
+    		system("cat -e test.txt");
+		}
 	}
 	else
 	{
@@ -301,6 +327,7 @@ int	main(int argc, char **argv)
 		printf("J: ft_itoa.c\n");
 		printf("K: ft_strmapi.c\n");
 		printf("L: ft_striteri.c\n");
+		printf("M: ft_*_fd.c\n");
 		printf("##################################\n");
 	}
 	free(ptr2);

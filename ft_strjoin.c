@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 18:31:35 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/24 20:15:02 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:38:45 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	if (!s1 || !s2)
 		return (NULL);
-	lenght1 = ft_strlen((char *)s1);
-	lenght2 = ft_strlen((char *)s2);
+	lenght1 = ft_strlen(s1);
+	lenght2 = ft_strlen(s2);
 	sjoin = malloc((lenght1 + lenght2 + 1) * sizeof(char));
 	if (!sjoin)
 		return (NULL);

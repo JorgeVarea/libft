@@ -6,18 +6,18 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 17:56:51 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:28:27 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 22:17:33 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Locate the first occurrence of the specified character 'c' 
+ * Locate the first occurrence of the specified character 'c'
  * in the given string 'str'.
  *
- * This function searches for the character 'c' in the string 'str' 
- * and returns a pointer to the first occurrence of 'c' in 'str'. 
+ * This function searches for the character 'c' in the string 'str'
+ * and returns a pointer to the first occurrence of 'c' in 'str'.
  * If 'c' is not found, it returns NULL.
  *
  * @param str  The string in which to search for the character 'c'.

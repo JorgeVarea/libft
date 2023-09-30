@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 17:54:58 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:34:35 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 22:17:12 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /**
  * Locate the last occurrence of character 'c' in the string 'str'.
  *
- * This function searches the string 'str' for the last occurrence of the 
+ * This function searches the string 'str' for the last occurrence of the
  * character 'c' and returns a pointer to the found character in the string.
  *
  * @param str  The string to be searched.

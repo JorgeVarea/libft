@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 18:52:40 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/30 21:36:31 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/09/30 20:48:45 by jorvarea          #+#    #+#             */
+/*   Updated: 2023/09/30 21:11:20 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Calculates the length of a null-terminated string.
+ * @brief Writes a single character to the given file descriptor.
  *
- * @param str The input string to measure.
- * @return The number of characters in the input string, 
- * excluding the null terminator.
+ * @param c The character to be written.
+ * @param fd The file descriptor to which the character will be written.
  */
-size_t	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	write(fd, &c, 1);
 }

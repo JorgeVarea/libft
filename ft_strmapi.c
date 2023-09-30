@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:40:04 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/25 18:20:06 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:40:05 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*s_mapi;
 	int		i;
 
-	s_mapi = malloc(ft_strlen((char *)s) + 1);
+	s_mapi = malloc(ft_strlen(s) + 1);
 	if (!s_mapi)
 		return (NULL);
 	i = 0;

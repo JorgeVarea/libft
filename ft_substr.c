@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 18:09:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/22 22:16:43 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:40:38 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (!s)
 		return (NULL);
-	size_s = ft_strlen((char *)s);
+	size_s = ft_strlen(s);
 	if (start >= size_s)
 	{
 		sub_s = malloc(1);

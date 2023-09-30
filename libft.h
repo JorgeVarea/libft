@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/25 18:22:17 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:43:12 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stddef.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -26,7 +27,7 @@ int		ft_islowcase(int c);
 int		ft_isupcase(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 size_t	ft_strlcpy(char *dest, char *src, size_t size);
 size_t	ft_strlcat(char *dest, char *src, size_t size);
 char	*ft_strchr(char *str, int c);
@@ -51,5 +52,9 @@ char	*ft_strrev(char *str);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *str, int fd);
+void	ft_putendl_fd(char *str, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 17:35:11 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/20 18:24:34 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/09/30 21:41:44 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strdup(const char *s1)
 	size_t	size;
 	char	*s1_copy;
 
-	size = ft_strlen((char *)s1) + 1;
+	size = ft_strlen(s1) + 1;
 	s1_copy = malloc(size);
 	if (s1_copy)
 		ft_strlcpy(s1_copy, (char *)s1, size);
