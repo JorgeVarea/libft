@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:48 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/30 22:08:53 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/01 03:12:28 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,6 +233,9 @@ int	main(int argc, char **argv)
 				printf("Word %d: %s\n", i + 1, words[i]);
 				i++;
 			}
+			i = 0;
+			while (words[i])
+				free(words[i++]);
 		}
 		else if (argv[1][0] == 'H')
 		{

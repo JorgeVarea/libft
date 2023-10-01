@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 20:12:01 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/22 20:13:53 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/01 02:26:29 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@
  */
 int	ft_count_words(char const *s, char c)
 {
-	int	i;
 	int	word_count;
 
 	word_count = 0;
-	i = 0;
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] != c)
+		if (*s != c)
 		{
 			word_count++;
-			while (s[i] != c && s[i] != '\0')
-				i++;
+			while (*s && *s != c)
+				s++;
 		}
 		else
-			i++;
+			s++;
 	}
 	return (word_count);
 }

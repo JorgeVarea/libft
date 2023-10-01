@@ -6,35 +6,70 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:27:18 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/24 18:29:49 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/01 04:14:12 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * Determines the length of a word in a string.
+ * @brief Extracts a word from a string using a delimiter.
  *
- * This function calculates the length of a word (sequence of characters
- * delimited by the character 'c') starting from the index pointed to by 'i'
- * in the string 's'. It also updates the value of 'i' to point to the end of
- * the word.
+ * This function identifies and extracts a word from the string 's'
+ * starting from the current position up to the next occurrence of
+ * the character 'c' or the end of the string. It allocates memory
+ * for the word and returns a pointer to this newly created word.
+ * The input pointer 's' is advanced to the character following
+ * the word or delimiter.
  *
- * @param s  The string containing the word.
- * @param c  The character used as delimiter.
- * @param i  Pointer to the starting index of the word.
+ * @param s  A pointer to the address of the current position
+ * 				in the source string.
+ *           The function modifies the address to which 's' points.
+ * @param c  The character used as delimiter to identify the end of the word.
  *
- * @return   Length of the word.
+ * @return   A pointer to the extracted word, or NULL
+ * 				if memory allocation fails.
  */
-static int	ft_word_lenght(char const *s, char c, int *i)
+static char	*ft_extract_word(char const **s, char c)
 {
-	int	j;
+	char		*word_i;
+	char		*word_start;
+	const char	*str_i;
 
-	j = 0;
-	while (s[*i + j] != c && s[*i + j] != '\0')
-		j++;
-	*i = *i + j;
-	return (j);
+	str_i = *s;
+	while (*str_i && *str_i != c)
+		str_i++;
+	word_start = malloc(str_i - *s + 1);
+	if (!word_start)
+		return (NULL);
+	word_i = word_start;
+	while (**s && **s != c)
+		*word_i++ = *((*s)++);
+	*word_i = '\0';
+	if (**s)
+		(*s)++;
+	return (word_start);
+}
+
+/**
+ * @brief Frees an array of words and returns a NULL pointer.
+ *
+ * This function iteratively frees each word in the array starting from the 
+ * current word back to the beginning of the array. After all words have been 
+ * freed, it also frees the memory allocated for the array itself.
+ *
+ * @param words        A pointer pointing to the current word or position in the 
+ *                     words array.
+ * @param words_start  A pointer to the start of the words array.
+ *
+ * @return   A NULL pointer, useful for returning from functions after cleanup.
+ */
+static void	*ft_free_words(char **words, char **words_start)
+{
+	while (words != words_start)
+		free(*(--words));
+	free(words_start);
+	return (NULL);
 }
 
 /**
@@ -51,30 +86,27 @@ static int	ft_word_lenght(char const *s, char c, int *i)
  */
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		word_lenght;
-	int		word_count;
 	char	**words;
+	char	**words_start;
 
 	if (!s)
 		return (NULL);
 	words = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
 	if (!words)
 		return (NULL);
-	word_count = 0;
-	i = 0;
-	while (s[i] != '\0')
+	words_start = words;
+	while (*s)
 	{
-		if (s[i] != c)
+		if (*s != c)
 		{
-			word_lenght = ft_word_lenght(s, c, &i);
-			words[word_count++] = ft_substr(s, i - word_lenght, word_lenght);
-			if (!words[word_count - 1])
-				return (NULL);
+			*words = ft_extract_word(&s, c);
+			if (!*words)
+				return (ft_free_words(words, words_start));
+			words++;
 		}
 		else
-			i++;
+			s++;
 	}
-	words[word_count] = NULL;
-	return (words);
+	*words = NULL;
+	return (words_start);
 }

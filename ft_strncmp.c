@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 19:20:39 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/16 09:55:20 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/01 01:01:05 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@
  * @param n   The maximum number of characters to compare.
  *
  * @return    An integer less than, equal to, or greater than 0,
- * 			  depending on the comparison result.
+ * 				depending on the comparison result.
  */
-int	ft_strncmp(char *s1, char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;
 
