@@ -6,12 +6,17 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:46:05 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/10 21:42:59 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/10 23:55:55 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
+
+static void ft_delete(void *content)
+{
+    free(content);
+}
 
 int main(void)
 {
@@ -69,5 +74,11 @@ int main(void)
     last = ft_lstlast(lst);
     printf("Last element's content: %s\n", last->content);
     printf("Last element's next: %p\n", last->next);
+    
+    /* _____________________lstdelone_______________________
+    printf("Testing lstdelone...\n");
+    ft_lstdelone(e4, ft_delete);
+    printf("Whatever is left in the deleted node: %p\n", e4->content);
+    */
     return (0);
 }
