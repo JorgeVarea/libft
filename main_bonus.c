@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 19:46:05 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/10 23:55:55 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/11 12:20:06 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,16 @@
 static void ft_delete(void *content)
 {
     free(content);
+}
+
+static void ft_f1 (void *content)
+{
+    printf("%s\n", (char*)content);
+}
+
+static void *ft_f2 (void *content)
+{
+    return ("pringao");
 }
 
 int main(void)
@@ -53,6 +63,7 @@ int main(void)
     t_list *e3;
     t_list *e4;
     t_list *last;
+    t_list *new_lst;
 
     printf("Testing lstsize...\n");
     e3 = ft_lstnew("hola3");
@@ -65,14 +76,14 @@ int main(void)
     
     printf("Testing lstlast...\n");
     last = ft_lstlast(lst);
-    printf("Last element's content: %s\n", last->content);
+    printf("Last element's content: %s\n", (char*)last->content);
     printf("Last element's next: %p\n", last->next);
     
     printf("Testing lstadd_back...\n");
     e4 = ft_lstnew("hola4");
     ft_lstadd_back(&lst, e4);
     last = ft_lstlast(lst);
-    printf("Last element's content: %s\n", last->content);
+    printf("Last element's content: %s\n", (char*)last->content);
     printf("Last element's next: %p\n", last->next);
     
     /* _____________________lstdelone_______________________
@@ -80,5 +91,19 @@ int main(void)
     ft_lstdelone(e4, ft_delete);
     printf("Whatever is left in the deleted node: %p\n", e4->content);
     */
+    
+    printf("Testing lstiter...\n");
+    ft_lstiter(lst, ft_f1);
+
+    /* ___________________lstclear_______________________
+    printf("Testing lstclear...\n");
+    ft_lstclear(&lst, ft_delete);
+    printf("Whatever is left in the first deleted node: %p\n", lst->content);
+    */
+
+    printf("Testing lstmap...\n");
+    new_lst = ft_lstmap(lst, ft_f2, ft_delete);
+    ft_lstiter(new_lst, ft_f1);
+    
     return (0);
 }
