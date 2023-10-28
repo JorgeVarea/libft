@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:55:25 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/28 13:01:55 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:27:19 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@
 int	ft_putstr(char *str)
 {
 	int	i;
-    int bytes_total_count;
-    int bytes_written;
+	int	total_bytes_written;
+	int	bytes_written;
 
 	i = 0;
-    bytes_total_count = 0;
-	while (str[i] && bytes_written > 0)
-    {
+	total_bytes_written = 0;
+	while (str[i] && bytes_written != -1)
+	{
 		bytes_written = write(1, &str[i++], 1);
-        bytes_total_count += bytes_written;
-    }
-    if (bytes_written <= 0)
-        bytes_total_count = -1;
-    return (bytes_total_count);
+		total_bytes_written += bytes_written;
+	}
+	if (bytes_written == -1)
+		total_bytes_written = -1;
+	return (total_bytes_written);
 }

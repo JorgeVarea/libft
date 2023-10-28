@@ -6,23 +6,23 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 12:19:29 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/28 12:26:21 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/28 23:27:25 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * @brief Writes a single character to the standard output.
+ * @brief Writes a character to the standard output.
  *
- * This function writes the character passed as a parameter to the
- * standard output, which is typically the terminal. It uses the
- * write system call to perform the output operation.
+ * This function writes a single character to the standard output,
+ * which is typically the terminal or console. The standard output is
+ * represented by the file descriptor 1. It utilizes the write system
+ * call for this purpose.
  *
- * @param c The character to be written to the standard output.
- * @return On success, the number of bytes written is returned, which
- *         is always 1 in this case since a single character is written.
- *         On error, -1 is returned, and errno is set appropriately.
+ * @param c The character to be written.
+ * @return On success, the number of bytes written is returned (always 1).
+ *         On error, -1 is returned.
  */
 int	ft_putchar(char c)
 {
