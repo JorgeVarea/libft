@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 13:35:46 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/28 23:29:33 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:45:54 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ static void	ft_write_number(int n, int *total_bytes_written, int *error)
 		str[i++] = n % 10 + '0';
 		n = n / 10;
 	}
+	str[i] = '\0';
 	while (i-- > 0 && !*error)
 		ft_secure_putchar(str[i], total_bytes_written, error);
 }

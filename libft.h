@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/28 23:38:47 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/29 00:43:51 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 int					ft_putchar(char c);
 int					ft_putstr(char *str);
 int					ft_putnbr(int n);
+int					ft_puthex(unsigned int n, char format);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *str, int fd);
 void				ft_putendl_fd(char *str, int fd);
