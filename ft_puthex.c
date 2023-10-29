@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 00:26:35 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/29 01:01:20 by jorvarea         ###   ########.fr       */
+/*   Updated: 2023/10/29 02:55:22 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	ft_write_number(int n, int *total_bytes_written, int *error,
  * the format specifier provided.
  *
  * The function keeps track of the total number of bytes successfully written
- * to the standard output. If an error occurs during the writing process, 
- * the function sets an error flag and immediately stops further writing. 
+ * to the standard output. If an error occurs during the writing process,
+ * the function sets an error flag and immediately stops further writing.
  * In the case of an error, the function returns -1 to indicate the failure.
  *
  * @param n The unsigned integer to be converted and written to
