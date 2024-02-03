@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-int ft_lowcase(int c) 
+int	ft_lowcase(int c)
 {
-    if (ft_isupcase(c)) 
-        c = c - 'A' + 'a';
-    return c;
+	if (ft_isupcase(c))
+		c = c - 'A' + 'a';
+	return (c);
 }

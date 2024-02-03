@@ -14,7 +14,7 @@
 
 int	ft_abs(int x)
 {
-	int mask;
+	int	mask;
 
 	mask = x >> (sizeof(int) * CHAR_BIT - 1);
 	return ((x ^ mask) + (mask & 1));

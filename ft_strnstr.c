@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:42:11 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:31:38 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:11:47 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ char	*ft_strnstr(const char *str, const char *to_find, size_t n)
 		if (str[i] == to_find[0])
 		{
 			j = 0;
-			while (i + j < n && to_find[j] && str[i + j] && str[i
-					+ j] == to_find[j])
+			while (i + j < n && to_find[j] && str[i + j] 
+				&& str[i + j] == to_find[j])
 				j++;
 			if (to_find[j] == '\0')
 				return (&((char *)str)[i]);

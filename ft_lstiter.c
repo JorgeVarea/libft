@@ -14,8 +14,8 @@
 
 void	ft_lstiter(t_list *head, void (*f)(void *))
 {
-	t_list *current;
-	
+	t_list	*current;
+
 	current = head;
 	while (current)
 	{

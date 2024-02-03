@@ -14,8 +14,8 @@
 
 static char	*ft_rev_num(char *str)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 0;
 	if (str[0] == '-')
@@ -46,7 +46,7 @@ char	*ft_itoa(int n)
 	if (n < 0)
 	{
 		str[i++] = '-';
-		n = -n;	
+		n = -n;
 	}
 	while (n > 0)
 	{

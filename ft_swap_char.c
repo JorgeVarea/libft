@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_swap_char(char *a, char *b)
+void	ft_swap_char(char *a, char *b)
 {
-    char tmp;
+	char	tmp;
 
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

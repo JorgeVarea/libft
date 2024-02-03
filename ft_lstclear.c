@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **head, void (*delete_content)(void *))
 {
-	t_list 	*current;
+	t_list	*current;
 	t_list	*tmp;
 
 	current = *head;

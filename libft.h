@@ -13,11 +13,11 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
-# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -48,7 +48,8 @@ t_list				*ft_lstextract_first(t_list **head);
 t_list				*ft_lstextract_last(t_list *head);
 void				ft_lstiter(t_list *head, void (*f)(void *));
 t_list				*ft_lstlast(t_list *head);
-t_list				*ft_lstmap(t_list *head, void *(*f)(void *), void (*delete_content)(void *));
+t_list				*ft_lstmap(t_list *head, void *(*f)(void *),
+						void (*delete_content)(void *));
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *head);
 int					ft_max(int a, int b);
@@ -77,10 +78,9 @@ char				*ft_strrchr(const char *str, int c);
 char				*ft_strrev(char *str);
 char				*ft_strtrim(char const *s1, char const *set);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
-void 				ft_swap_char(char *a, char *b);
-void 				ft_swap_int(int *a, int *b);
+void				ft_swap_char(char *a, char *b);
+void				ft_swap_int(int *a, int *b);
 int					ft_uppercase(int c);
 int					ft_lowcase(int c);
-
 
 #endif
