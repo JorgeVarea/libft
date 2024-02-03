@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 18:31:35 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:26:26 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/10/10 20:34:09 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/03 16:39:03 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_lstsize(t_list *head)
 {
-	size_t	i;
-	size_t	lenght1;
-	size_t	lenght2;
-	char	*sjoin;
+	t_list	*current;
+	int		i;
 
-	if (!s1 || !s2)
-		return (NULL);
-	lenght1 = ft_strlen(s1);
-	lenght2 = ft_strlen(s2);
-	sjoin = malloc((lenght1 + lenght2 + 1) * sizeof(char));
-	if (!sjoin)
-		return (NULL);
+	current = head;
 	i = 0;
-	while (i < lenght1)
+	while (current)
 	{
-		sjoin[i] = s1[i];
+		current = current->next;
 		i++;
 	}
-	while (i < (lenght1 + lenght2))
-	{
-		sjoin[i] = s2[i - lenght1];
-		i++;
-	}
-	sjoin[i] = '\0';
-	return (sjoin);
+	return (i);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_count_digits.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 18:33:35 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:27:27 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/02/03 14:48:46 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/03 14:50:26 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * Checks if a given character is a printable ASCII character.
- *
- * @param c The character to be checked.
- * @return 1 if the character is a printable ASCII character (32-126),
- *  0 otherwise.
- */
-int	ft_isprint(int c)
+int	ft_count_digits(int n)
 {
-	if (c >= 32 && c <= 126)
+	int	i;
+
+	if (n == 0)
 		return (1);
-	else
-		return (0);
+	i = 0;
+	while (n != 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
 }

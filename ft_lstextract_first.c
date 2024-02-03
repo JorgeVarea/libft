@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   list_extract_first.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/30 21:11:47 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:13:29 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/01/16 15:51:20 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/03 16:27:02 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+t_list	*ft_lstextract_first(t_list **head)
 {
-	if (n == -2147483648)
+	t_list	*extracted_element;
+	t_list	*new_head;
+
+	extracted_element = *head;
+	if (extracted_element != NULL)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putchar_fd('2', fd);
-		ft_putnbr_fd(147483648, fd);
+		new_head = extracted_element->next;
+		*head = new_head;
+		extracted_element->next = NULL;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd((n % 10) + '0', fd);
-	}
-	else
-		ft_putchar_fd(n + '0', fd);
+	return (extracted_element);
 }

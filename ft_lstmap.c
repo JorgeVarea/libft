@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/24 18:31:35 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:26:26 by jorvarea         ###   ########.fr       */
+/*   Created: 2023/10/11 11:28:24 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/03 16:35:17 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstmap(t_list *head, void *(*f)(void *), void (*delete_content)(void *))
 {
-	size_t	i;
-	size_t	lenght1;
-	size_t	lenght2;
-	char	*sjoin;
+	t_list 	*current;
+	t_list	*new_lst;
+	t_list	*new_element;
 
-	if (!s1 || !s2)
+	if (!head || !f || !delete_content)
 		return (NULL);
-	lenght1 = ft_strlen(s1);
-	lenght2 = ft_strlen(s2);
-	sjoin = malloc((lenght1 + lenght2 + 1) * sizeof(char));
-	if (!sjoin)
-		return (NULL);
-	i = 0;
-	while (i < lenght1)
+	new_lst = NULL;
+	current = head;
+	while (current)
 	{
-		sjoin[i] = s1[i];
-		i++;
+		new_element = ft_lstnew(f(current->content));
+		if (!new_element)
+		{
+			ft_lstclear(&new_lst, delete_content);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, new_element);
+		current = current->next;
 	}
-	while (i < (lenght1 + lenght2))
-	{
-		sjoin[i] = s2[i - lenght1];
-		i++;
-	}
-	sjoin[i] = '\0';
-	return (sjoin);
+	return (new_lst);
 }

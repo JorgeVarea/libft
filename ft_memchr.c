@@ -6,32 +6,24 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 18:27:42 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/19 20:19:54 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 16:56:29 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Search for the first occurrence of the character 'c' within the first 'n' 
- * bytes of the memory block pointed to by 'str'.
- *
- * @param str A pointer to the memory block to search.
- * @param c The character to search for.
- * @param n The maximum number of bytes to search.
- * @return A pointer to the first occurrence of 'c' if found,
- *  or NULL if not found.
- */
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *ptr, int c, size_t n)
 {
-	size_t	i;
+	const unsigned char *uc_ptr;
+	unsigned char uc_c;
 
-	i = 0;
-	while (i < n)
+	uc_ptr = (const unsigned char *)ptr;
+	uc_c = (unsigned char)c;
+    while (n--) 
 	{
-		if (((unsigned char *)str)[i] == (unsigned char)c)
-			return (&((unsigned char *)str)[i]);
-		i++;
-	}
-	return (NULL);
+        if (*uc_ptr == uc_c)
+            return ((void *)uc_ptr);
+        uc_ptr++;
+    }
+    return (NULL);
 }

@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_swap_char.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 21:04:09 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/14 19:35:15 by jorvarea         ###   ########.fr       */
+/*   Created: 2024/02/03 15:04:28 by jorvarea          #+#    #+#             */
+/*   Updated: 2024/02/03 15:11:22 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-/**
- * Converts an uppercase alphabetic character to its lowercase equivalent.
- *
- * @param c The character to be converted.
- * @return The lowercase equivalent of the input character if it's uppercase,
- *  or the input character itself if not.
- */
-int	ft_tolower(int c)
+void ft_swap_char(char *a, char *b)
 {
-	if (ft_isupcase(c))
-		return (c + 32);
-	else
-		return (c);
+    char tmp;
+
+    tmp = *a;
+    *a = *b;
+    *b = tmp;
 }

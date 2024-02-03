@@ -6,23 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 09:59:14 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/16 16:52:56 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:29:02 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Converts a string to an integer.
- *
- * This function takes a string `str` as input and converts it into an integer.
- * It skips leading white spaces, processes an optional sign ('+' or '-'), and
- * then converts the numeric characters into an integer until a non-numeric
- * character is encountered. It returns the resulting integer value.
- *
- * @param str The input string to convert to an integer.
- * @return The integer value represented by the input string.
- */
 int	ft_atoi(const char *str)
 {
 	int	i;
@@ -34,14 +23,9 @@ int	ft_atoi(const char *str)
 	i = 0;
 	while (ft_isspace(str[i]))
 		i++;
-	if (str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		sign = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-	{
-		sign = 1;
+		sign = (str[i] == '+') - (str[i] == '-');
 		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9')

@@ -6,22 +6,16 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 23:36:57 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/28 23:38:23 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 14:22:29 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * @brief Computes the absolute value of an integer.
- * 
- * @param n The integer of which to calculate the absolute value.
- * @return The absolute value of `n`. If `n` is non-negative, the function 
- *         returns `n` itself. If `n` is negative, the function returns `-n`.
- */
-int	ft_abs(int n)
+int	ft_abs(int x)
 {
-	if (n < 0)
-		n = -n;
-	return (n);
+	int mask;
+
+	mask = x >> (sizeof(int) * CHAR_BIT - 1);
+	return ((x ^ mask) + (mask & 1));
 }

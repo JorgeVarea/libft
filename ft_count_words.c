@@ -6,32 +6,25 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 20:12:01 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/01 02:26:29 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:50:04 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/**
- * Count the number of words in a string separated by a given character.
- *
- * @param s The string to be scanned.
- * @param c The delimiter character.
- * @return The number of words in the string separated by the delimiter.
- */
-int	ft_count_words(char const *s, char c)
+int	ft_count_words(char const *str, char delimiter)
 {
 	int	word_count;
 
 	word_count = 0;
-	while (*s)
+	while (*str)
 	{
-		if (*s != c)
+		if (*str != delimiter)
 		{
 			word_count++;
-			while (*s && *s != c)
-				s++;
+			while (*str && *str != delimiter)
+				str++;
 		}
 		else
-			s++;
+			str++;
 	}
 	return (word_count);
 }

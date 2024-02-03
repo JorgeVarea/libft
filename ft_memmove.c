@@ -6,44 +6,45 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 20:05:46 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/09/19 18:35:18 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:10:22 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Copy memory area from source to destination, even if they overlap.
- *
- * This function copies 'n' bytes from 'src' to 'dest'. It handles overlapping
- * memory areas correctly by copying from the end of 'src' to the end of 'dest'
- * when 'src' and 'dest' overlap. The behavior is undefined if 'src' and 'dest'
- * are both NULL or if 'n' is zero.
- *
- * @param dest Pointer to the destination memory area.
- * @param src  Pointer to the source memory area.
- * @param n    Number of bytes to copy.
- *
- * @return Pointer to the destination memory area ('dest').
- */
-void	*ft_memmove(void *dest, const void *src, size_t n)
+static void copy_forward(unsigned char *dest, const unsigned char *src, size_t n) 
 {
-	size_t	i;
+    size_t i;
 
-	if (dest == NULL && src == NULL)
-		return (0);
-	if (n != 0)
+	i = 0;
+    while (i < n) 
 	{
-		i = 0;
-		while (i < n)
-		{
-			if (src < dest && dest < src + n)
-				((unsigned char *)dest)[n - i - 1] = ((unsigned char *)src)[n
-					- i - 1];
-			else
-				((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
-			i++;
-		}
-	}
-	return (dest);
+        dest[i] = src[i];
+        i++;
+    }
+}
+
+static void copy_backward(unsigned char *dest, const unsigned char *src, size_t n) 
+{
+    while (n > 0) 
+	{
+        dest[n - 1] = src[n - 1];
+        n--;
+    }
+}
+
+void *ft_memmove(void *dest, const void *src, size_t n) 
+{
+    unsigned char *uc_dest = (unsigned char *)dest;
+    const unsigned char *uc_src = (const unsigned char *)src;
+
+    if (dest == NULL && src == NULL)
+        return (NULL);
+	uc_src = (const unsigned char *)src;
+	uc_dest = (unsigned char *)dest;
+    if (uc_src < uc_dest && uc_dest < uc_src + n)
+        copy_backward(uc_dest, uc_src, n);
+	else 
+        copy_forward(uc_dest, uc_src, n);
+    return dest;
 }

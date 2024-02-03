@@ -6,32 +6,12 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 16:05:53 by jorvarea          #+#    #+#             */
-/*   Updated: 2023/10/01 00:59:43 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:26:44 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**
- * Appends up to 'size - 1' characters from 'src' to the end of 'dest'
- *  and ensures 'dest' is null-terminated.
- *
- * This function appends characters from 'src' to the end of 'dest' 
- * until either 'size - 1' characters have been appended, the end of
- * 'src' is reached, or a null character ('\0') is encountered in 'src'.
- * It then ensures that 'dest' is null-terminated by adding
- * a null character ('\0') at the end.
- *
- * @param dest  The destination buffer to which 'src' will be appended.
- * @param src   The source string to be appended to 'dest'.
- * @param size  The total size of 'dest', 
- * 				including the space for 'src' and the null terminator.
- *
- * @return      The total length of the concatenated string 
- * 				(initial length of 'dest' + length of 'src').
- *              If 'size' is 0, it returns the length of the concatenated string 
- * 				(length of 'src' + initial length of 'dest').
- */
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
