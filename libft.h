@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:54:56 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:05:40 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void				*ft_memchr(const void *ptr, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
 void				*ft_memmove(void *dest, const void *src, size_t n);
-void				*ft_memset(void *ptr, int c, size_t size);
+void				*ft_memset(void *pointer, int fill_character, size_t size);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *str, int fd);
 void				ft_putnbr_fd(int n, int fd);
