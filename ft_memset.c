@@ -6,23 +6,23 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 16:45:25 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/03 17:12:04 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/13 14:04:29 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *ptr, int c, size_t size)
+void	*ft_memset(void *pointer, int fill_character, size_t size)
 {
-	unsigned char	*uc_ptr;
-	unsigned char	uc_c;
+	unsigned char	*uc_pointer;
+	unsigned char	uc_fill_character;
 	size_t			i;
 
-	uc_ptr = (unsigned char *)ptr;
-	uc_c = (unsigned char)c;
+	uc_pointer = (unsigned char *)pointer;
+	uc_fill_character = (unsigned char)fill_character;
 	i = 0;
 	if (size != 0)
 		while (i < size)
-			uc_ptr[i++] = uc_c;
-	return (ptr);
+			uc_pointer[i++] = uc_fill_character;
+	return (pointer);
 }
