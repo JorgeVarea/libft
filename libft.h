@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/13 14:05:40 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:33:16 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 
 int					ft_abs(int n);
 int					ft_atoi(const char *str);
+unsigned int		ft_atoi_hex(char *str);
 void				ft_bzero(void *b, size_t size);
 void				*ft_calloc(size_t count, size_t size);
 int					ft_count_digits(int n);
