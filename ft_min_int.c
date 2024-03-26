@@ -6,13 +6,13 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 18:52:22 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/01/29 18:53:27 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:09:02 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_min(int a, int b)
+int	ft_min_int(int a, int b)
 {
 	return (a * (a <= b) + b * (b < a));
 }

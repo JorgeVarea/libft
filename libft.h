@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/02/25 15:33:16 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/03/26 14:11:02 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ t_list				*ft_lstmap(t_list *head, void *(*f)(void *),
 t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *head);
 int					ft_max(int a, int b);
-int					ft_min(int a, int b);
+int					ft_min_float(float a, float b);
+int					ft_min_int(int a, int b);
 void				*ft_memchr(const void *ptr, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);

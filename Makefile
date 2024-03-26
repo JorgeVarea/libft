@@ -6,7 +6,7 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 23:12:03 by jorvarea          #+#    #+#              #
-#    Updated: 2024/02/25 16:50:18 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/03/26 14:12:22 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,11 @@ SOURCE_FILES   		= ft_isascii.c ft_lstadd_front.c ft_lstsize.c ft_putendl_fd.c f
 					ft_lstextract_first.c ft_memcmp.c ft_split.c ft_strncmp.c ft_strnstr.c \
 					ft_calloc.c ft_isspace.c ft_lstextract_last.c ft_memcpy.c ft_strchr.c \
 					ft_strrchr.c ft_count_digits.c ft_isupcase.c ft_lstiter.c ft_memmove.c \
-					ft_strdup.c ft_strrev.c ft_isalnum.c ft_lowcase.c ft_lstmap.c ft_min.c \
+					ft_strdup.c ft_strrev.c ft_isalnum.c ft_lowcase.c ft_lstmap.c \
 					ft_strjoin.c ft_strtrim.c ft_isalpha.c ft_lstadd_back.c ft_lstnew.c \
 					ft_putchar_fd.c ft_strlcat.c ft_substr.c ft_count_words.c ft_itoa.c \
-					ft_lstlast.c ft_memset.c ft_striteri.c ft_strlcat.c ft_atoi_hex.c
+					ft_lstlast.c ft_memset.c ft_striteri.c ft_strlcat.c ft_atoi_hex.c \
+					ft_min_int.c ft_min_float.c
 OBJECT_DIR 			= obj
 OBJECT_FILES		= $(SOURCE_FILES:%.c=$(OBJECT_DIR)/%.o)
 
