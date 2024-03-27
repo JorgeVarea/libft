@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/03/26 14:11:02 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/03/27 14:21:59 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *str, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *str, int fd);
+int					ft_round(float x);
 char				**ft_split(char const *s, char c);
 char				*ft_strchr(const char *str, int c);
 char				*ft_strdup(const char *str);
