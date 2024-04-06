@@ -6,7 +6,7 @@
 #    By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 23:12:03 by jorvarea          #+#    #+#              #
-#    Updated: 2024/03/27 14:22:09 by jorvarea         ###   ########.fr        #
+#    Updated: 2024/04/06 15:32:44 by jorvarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SOURCE_FILES   		= ft_isascii.c ft_lstadd_front.c ft_lstsize.c ft_putendl_fd.c f
 					ft_strjoin.c ft_strtrim.c ft_isalpha.c ft_lstadd_back.c ft_lstnew.c \
 					ft_putchar_fd.c ft_strlcat.c ft_substr.c ft_count_words.c ft_itoa.c \
 					ft_lstlast.c ft_memset.c ft_striteri.c ft_strlcat.c ft_atoi_hex.c \
-					ft_min_int.c ft_min_float.c ft_round.c
+					ft_min_int.c ft_min_float.c ft_round.c ft_abs_float.c
 OBJECT_DIR 			= obj
 OBJECT_FILES		= $(SOURCE_FILES:%.c=$(OBJECT_DIR)/%.o)
 

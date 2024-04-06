@@ -6,7 +6,7 @@
 /*   By: jorvarea <jorvarea@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 21:28:49 by jorvarea          #+#    #+#             */
-/*   Updated: 2024/03/27 14:21:59 by jorvarea         ###   ########.fr       */
+/*   Updated: 2024/04/06 15:32:34 by jorvarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+float				ft_abs_float(float x);
 int					ft_abs(int n);
 int					ft_atoi(const char *str);
 unsigned int		ft_atoi_hex(char *str);
